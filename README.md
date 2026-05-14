@@ -87,49 +87,33 @@ Nest application successfully started
 La aplicación sigue una arquitectura modular basada en NestJS.
 
 Cliente \
-   ↓ \
+&ensp;&ensp;&ensp;↓ \
 Controller \
-   ↓ \
+&ensp;&ensp;&ensp;↓ \
 Service \
-   ↓ \
+&ensp;&ensp;&ensp;↓ \
 Provider / Model \
-   ↓ \
-MongoDB / API externa \
+&ensp;&ensp;&ensp;↓ \
+MongoDB / API externa 
 
 # Estructura de módulos
 
-src/
-
-│
-
-├── countries/
-
-│   ├── entities/
-
-│   ├── providers/
-
-│   ├── countries.module.ts
-
-│   └── countries.service.ts
-
-│
-
-├── travel-plans/
-
-│   ├── dto/
-
-│   ├── entities/
-
-│   ├── travel-plans.controller.ts
-
-│   ├── travel-plans.module.ts
-
-│   └── travel-plans.service.ts
-
-│
-
-├── app.module.ts
-
+src/ \
+│ \
+├── countries/ \
+│   ├── entities/ \
+│   ├── providers/ \
+│   ├── countries.module.ts \
+│   └── countries.service.ts \
+│ \
+├── travel-plans/ \
+│   ├── dto/ \
+│   ├── entities/ \
+│   ├── travel-plans.controller.ts \
+│   ├── travel-plans.module.ts \
+│   └── travel-plans.service.ts \
+│ \
+├── app.module.ts \
 └── main.ts
 
 # Explicación de la arquitectura
@@ -163,37 +147,22 @@ Es el módulo público de la aplicación.
 
 Cuando se crea un TravelPlan:
 
-TravelPlansService
-
-        ↓
-
-CountriesService
-
-        ↓
-
-MongoDB
-
-        ↓
-
-¿Existe el país?
-
-   ↓             ↓
-
- SI              NO
-
- ↓               ↓
-
-Retornar     Consultar API
-
-caché        RestCountries
-
-                  ↓
-
-            Guardar en Mongo
-
-                  ↓
-
-             Retornar país
+TravelPlansService \
+&emsp;&emsp;↓ \
+CountriesService \
+&emsp;&emsp;↓ \
+&emsp;MongoDB \
+&emsp;&emsp;↓ \
+&ensp;¿Existe el país? \
+&ensp;&ensp;↓             ↓ \
+&ensp;SI              NO \
+&ensp;&ensp;↓               ↓ \
+Retornar     Consultar API \
+caché        RestCountries \
+&emsp;&emsp;&emsp;&emsp;&ensp;↓ \
+&emsp;&emsp;&emsp;Guardar en Mongo \
+&emsp;&emsp;&emsp;&emsp;&ensp;↓ \
+&emsp;&emsp;&emsp;Retornar país
 
 **Endpoints disponibles**
 
