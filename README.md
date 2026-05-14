@@ -87,38 +87,63 @@ Nest application successfully started
 La aplicación sigue una arquitectura modular basada en NestJS.
 
 Cliente
+
    ↓
+
 Controller
+
    ↓
+
 Service
+
    ↓
+
 Provider / Model
+
    ↓
+
 MongoDB / API externa
 
 # Estructura de módulos
 
 src/
+
 │
+
 ├── countries/
+
 │   ├── entities/
+
 │   ├── providers/
+
 │   ├── countries.module.ts
+
 │   └── countries.service.ts
+
 │
+
 ├── travel-plans/
+
 │   ├── dto/
+
 │   ├── entities/
+
 │   ├── travel-plans.controller.ts
+
 │   ├── travel-plans.module.ts
+
 │   └── travel-plans.service.ts
+
 │
+
 ├── app.module.ts
+
 └── main.ts
 
 # Explicación de la arquitectura
 
 **CountriesModule**
+
 Este módulo maneja toda la lógica de países y caché local.
 
 **Responsabilidades**
@@ -132,6 +157,7 @@ Este módulo maneja toda la lógica de países y caché local.
 - Toda su funcionalidad es utilizada internamente mediante inyección de dependencias.
 
 **TravelPlansModule**
+
 Es el módulo público de la aplicación.
 
 **Responsabilidades**
@@ -142,22 +168,39 @@ Es el módulo público de la aplicación.
 + Comunicarse con CountriesService
 
 **Flujo de caché de países**
+
 Cuando se crea un TravelPlan:
+
 TravelPlansService
+
         ↓
+
 CountriesService
+
         ↓
+
 MongoDB
+
         ↓
+
 ¿Existe el país?
+
    ↓             ↓
+
  SI              NO
+
  ↓               ↓
+
 Retornar     Consultar API
+
 caché        RestCountries
+
                   ↓
+
             Guardar en Mongo
+
                   ↓
+
              Retornar país
 
 **Endpoints disponibles**
@@ -170,6 +213,7 @@ caché        RestCountries
 | DELETE | /travel-plans/:id | Eliminar plan            |
 
 **Validaciones implementadas**
+
 Se utilizan DTOs y ValidationPipe global.
 
 **Validaciones incluidas**
