@@ -86,23 +86,15 @@ Nest application successfully started
 
 La aplicación sigue una arquitectura modular basada en NestJS.
 
-Cliente
-
-   ↓
-
-Controller
-
-   ↓
-
-Service
-
-   ↓
-
-Provider / Model
-
-   ↓
-
-MongoDB / API externa
+Cliente \
+   ↓ \
+Controller \
+   ↓ \
+Service \
+   ↓ \
+Provider / Model \
+   ↓ \
+MongoDB / API externa \
 
 # Estructura de módulos
 
