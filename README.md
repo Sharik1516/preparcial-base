@@ -23,21 +23,18 @@ Proyecto desarrollado con NestJS y MongoDB para la gestión de planes de viaje u
 
 ```bash
 git clone https://github.com/Sharik1516/preparcial-base.git
-exit
 ```
 
 ## 2. Entrar al proyecto
 
 ```bash
 cd preparcial-base
-exit
 ```
 
 ## 3. Instalar dependencias
 
 ```bash
 npm install
-exit
 ```
 
 ## 4. Instalar dependencias necesarias
@@ -46,7 +43,6 @@ exit
 npm install @nestjs/mongoose mongoose
 npm install @nestjs/axios axios
 npm install class-validator class-transformer
-exit
 ```
 
 ---
@@ -59,19 +55,16 @@ exit
 
 ```bash
 docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=secret mongo:6.0
-exit
 ```
 
 ## 3. Verificar que Mongo esté activo
 
 ```bash
 docker ps
-exit
 ```
 Debe aparecer un contenedor con:
 ```bash
 mongo:6.0
-exit
 ```
 
 ---
@@ -81,12 +74,10 @@ exit
 ## 1. Modo desarrollo
 ```bash
 npm run start:dev
-exit
 ```
 Resultado esperado:
 ```bash
 Nest application successfully started
-exit
 ```
 
 ---
@@ -195,7 +186,6 @@ Se utilizan DTOs y ValidationPipe global.
 **Endpoint**
 ```bash
 POST http://localhost:3000/travel-plans
-exit
 ```
 **Body JSON**
 ```bash
@@ -205,28 +195,24 @@ exit
   "endDate": "2026-06-10",
   "countryCode": "COL"
 }
-exit
 ```
 
 ## 2. Obtener todos los planes
 **Endpoint**
 ```bash
 GET http://localhost:3000/travel-plans
-exit
 ```
 
 ## 3. Obtener plan por ID
 **Endpoint**
 ```bash
 GET http://localhost:3000/travel-plans/<ID>
-exit
 ```
 
 ## 4. Eliminar plan
 **Endpoint**
 ```bash
 DELETE http://localhost:3000/travel-plans/<ID>
-exit
 ```
 
 ## 5. Ejemplo de validación incorrecta
@@ -238,11 +224,9 @@ exit
   "endDate": "mañana",
   "countryCode": "COLOMBIA"
 }
-exit
 ```
 
 **Resultado esperado**
 ```bash
 400 Bad Request
-exit
 ```
