@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, IsPositive } from 'class-validator';
 // Decoradores de validación
 
 export class CreateExpensesDto {
@@ -7,6 +7,7 @@ export class CreateExpensesDto {
   description: string;
 
   @IsNumber() //Debe ser un número
+  @IsPositive() //Debe ser un número positivo
   amount: number;
 
   @IsString() //Debe ser una cadena de texto
