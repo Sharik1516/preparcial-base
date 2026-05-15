@@ -235,3 +235,9 @@ DELETE http://localhost:3000/travel-plans/<ID>
 ```bash
 400 Bad Request
 ```
+
+---
+
+# Reporte de Cambios
+
+Implemente la inserción individual de gastos utilizando un arreglo embebido dentro de la entidad *TravelPlan* en MongoDB. Lo que hice fue agregar el atributo expenses como un arreglo de objetos en el schema de Mongoose. Después, establecí el endpoint POST /travel-plans/:id/expenses, en el cual se puede agregar un nuevo gasto a un plan de viaje existente. La lógica fue implementada en *TravelPlansService*, donde primero se busca el documento correspondiente usando findById(), luego se inserta el nuevo gasto usando travelPlan.expenses.push(dto) y finalmente se persiste el cambio con save().

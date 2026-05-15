@@ -1,5 +1,5 @@
 // src/app.module.ts
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 // Importa el decorador @Module de NestJS.
 // Este decorador sirve para definir módulos.
 
@@ -12,7 +12,10 @@ import { CountriesModule } from './countries/countries.module';
 // Contiene la lógica de países y caché.
 
 import { TravelPlansModule } from './travel-plans/travel-plans.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 // Importa el módulo público de planes de viaje.
+
+import { AuditMiddleware } from './middleware/audit.middleware';
 
 @Module({
   imports: [
@@ -31,10 +34,15 @@ import { TravelPlansModule } from './travel-plans/travel-plans.module';
     // Registra el módulo Countries dentro de la app.
 
     TravelPlansModule,
+    UsuariosModule,
     // Registra el módulo TravelPlans.
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuditMiddleware).forRoutes('travel-plans', 'usuarios');
+  }
+}
 // Módulo principal de toda la aplicación.
 // Aquí NestJS conecta todos los módulos.
 

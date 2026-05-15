@@ -4,6 +4,9 @@ import { IsString, IsNotEmpty, IsDateString, Length } from 'class-validator';
 export class CreateTravelPlanDto {
   @IsString() //Debe ser una cadena de texto
   @IsNotEmpty() //No debe estar vacío
+  userId: string;
+  @IsString() //Debe ser una cadena de texto
+  @IsNotEmpty() //No debe estar vacío
   title: string;
 
   @IsDateString() //Debe tener formato de fecha valido

@@ -2,6 +2,7 @@ import { Controller } from '@nestjs/common';
 import { Body, Delete, Get, Param, Post } from '@nestjs/common';
 import { TravelPlansService } from './travel-plans.service';
 import { CreateTravelPlanDto } from './dto/create-travel-plan.dto';
+import { CreateExpensesDto } from './dto/create-expenses.dto';
 
 @Controller('travel-plans')
 // Todas las rutas empiezan con /travel-plans
@@ -35,5 +36,11 @@ export class TravelPlansController {
   remove(@Param('id') id: string) {
     return this.travelPlansService.remove(id);
     // Elimina plan
+  }
+
+  @Post(':id/expenses')
+  // Endpoint POST /travel-plans/:id/expenses
+  createExpense(@Param('id') id: string, @Body() dto: CreateExpensesDto) {
+    return this.travelPlansService.createExpense(id, dto);
   }
 }

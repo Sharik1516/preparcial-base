@@ -2,7 +2,9 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema()
 export class TravelPlan {
-
+  @Prop({ required: true })
+  userId: string;
+  //El ID del usuario al que pertenece el plan de viaje, obligatorio
   @Prop({ required: true })
   title: string;
   //El título del plan de viaje, obligatorio
@@ -18,6 +20,9 @@ export class TravelPlan {
   @Prop({ required: true })
   countryCode: string;
   //El código del país de destino, obligatorio
+
+  @Prop()
+  expenses: [Object];
 }
 
 export const TravelPlanSchema = SchemaFactory.createForClass(TravelPlan);

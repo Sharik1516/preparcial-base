@@ -7,6 +7,7 @@ import { TravelPlansController } from './travel-plans.controller';
 import { TravelPlan, TravelPlanSchema } from './entities/travel-plan.entity';
 
 import { CountriesModule } from '../countries/countries.module';
+import { UsuariosModule } from '../usuarios/usuarios.module';
 
 @Module({
   imports: [
@@ -19,6 +20,8 @@ import { CountriesModule } from '../countries/countries.module';
     // Registra modelo TravelPlan.
     CountriesModule,
     // Importa CountriesModule.
+    UsuariosModule,
+    // Importa UsuariosModule.
   ],
   providers: [TravelPlansService],
   // Servicio lógica negocio.
